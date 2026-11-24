@@ -1,0 +1,172 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Feliz Cumpleaños Ellie <3!</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3, #a18cd1);
+            color: white;
+            text-align: center;
+        }
+
+        .contenedor {
+            z-index: 2;
+            padding: 30px;
+            animation: aparecer 2s ease;
+        }
+
+        h1 {
+            font-size: 55px;
+            margin-bottom: 20px;
+            text-shadow: 3px 3px 8px #9b2862;
+            animation: latido 2s infinite;
+        }
+
+        p {
+            font-size: 22px;
+            margin-bottom: 25px;
+        }
+
+        .pastel {
+            font-size: 110px;
+            margin: 20px;
+            animation: flotar 3s infinite ease-in-out;
+        }
+
+        button {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 30px;
+            background: #fff;
+            color: #e84393;
+            font-size: 18px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            background: #ffe0ed;
+        }
+
+        .globo {
+            position: absolute;
+            bottom: -150px;
+            font-size: 50px;
+            animation: subir 10s linear infinite;
+        }
+
+        @keyframes subir {
+            to {
+                transform: translateY(-120vh) rotate(20deg);
+            }
+        }
+
+        @keyframes aparecer {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes latido {
+            50% {
+                transform: scale(1.08);
+            }
+        }
+
+        @keyframes flotar {
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <div class="contenedor">
+        <h1>🎉 ¡Feliz Cumpleaños Ellie <3! 🎉</h1>
+
+        <p>
+            Que hayas pasado un día lleno de alegría,
+            amor y a pesar de conocerte poco, me gustaria poderte concerte mas,
+            y acercarme mas a ti.
+        </p>
+
+        <div class="pastel">🎂</div>
+
+        <p>¡Que todos tus sueños se hagan realidad! ❤️</p>
+
+        <button onclick="celebrar()">
+            ¡Haz clic aquí! 🎁
+        </button>
+    </div>
+
+    <script>
+
+        function crearGlobos() {
+            let globo = document.createElement("div");
+
+            globo.className = "globo";
+            globo.innerHTML = "🎈";
+
+            globo.style.left = Math.random() * 100 + "vw";
+            globo.style.animationDuration =
+                (5 + Math.random() * 5) + "s";
+
+            document.body.appendChild(globo);
+
+            setTimeout(function() {
+                globo.remove();
+            }, 10000);
+        }
+
+        setInterval(crearGlobos, 700);
+
+        function celebrar() {
+            alert("🎉 ¡MUCHAS FELICIDADES LINDA! 🎉");
+
+            for (let i = 0; i < 30; i++) {
+                let confeti = document.createElement("div");
+
+                confeti.innerHTML = "✨";
+                confeti.style.position = "absolute";
+                confeti.style.left = Math.random() * 100 + "vw";
+                confeti.style.top = Math.random() * 100 + "vh";
+                confeti.style.fontSize = "30px";
+
+                document.body.appendChild(confeti);
+
+                setTimeout(function() {
+                    confeti.remove();
+                }, 2000);
+            }
+        }
+
+    </script>
+
+</body>
+</html>
